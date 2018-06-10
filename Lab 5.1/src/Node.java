@@ -2,8 +2,8 @@ import java.util.ArrayList;
 
 public class Node 
 {
-	public String name;
-	ArrayList<Node> children;
+	 String name;
+	 ArrayList<Node> children;
 	
 	public Node(String name, ArrayList<Node> children)
 	{
@@ -23,6 +23,6 @@ public class Node
 	
 	public String toString()
 	{
-		
+		return ("Current City : " + name);
 	}
 }

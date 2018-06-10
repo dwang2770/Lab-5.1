@@ -1,4 +1,4 @@
-package bot;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -28,12 +28,22 @@ public class SearchRunner {
 
         //Test our BreadthFirstSearch
         AbstractSearch bfs = new BreadthFirstSearch(NYC, SD);
-
         if(bfs.search())
-            System.out.print("Path Found!");
+            System.out.println("Path Found!");
         else
         {
-            System.out.print("No Path Found");
+            System.out.println("No Path Found");
         }
+        System.out.println();
+        //Test depthFirstSearch
+        AbstractSearch dfs = new BreadthFirstSearch(NYC, SD);
+        if(dfs.search())
+            System.out.println("Path Found!");
+        else
+        {
+            System.out.println("No Path Found");
+        }
+        
+        
     }
 }

@@ -1,13 +1,12 @@
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.Stack;
 
-public class BreadthFirstSearch extends AbstractSearch
+public class DepthFirstSearch extends AbstractSearch
 {
 	 Node startNode;
 	 Node goalNode;
 	
-	public BreadthFirstSearch (Node startNode, Node goalNode)
+	public DepthFirstSearch (Node startNode, Node goalNode)
 	{
 		this.startNode = startNode;
 		this.goalNode = goalNode;
@@ -21,14 +20,14 @@ public class BreadthFirstSearch extends AbstractSearch
             System.out.println(startNode);
         }
 		
-		Queue<Node> queue = new LinkedList<>();
+		Stack <Node> stack = new Stack<>();
 	    ArrayList<Node> explored = new ArrayList<>();
-	    queue.add(this.startNode);
+	    stack.add(this.startNode);
 	    explored.add(startNode);
 	
-	    while (!queue.isEmpty())
+	    while (!stack.isEmpty())
 	    {
-	    	Node current = queue.remove();
+	    	Node current = stack.pop();
 	    	if (current.equals(this.goalNode))
 	    	{
 	    		System.out.println(explored);
@@ -37,18 +36,11 @@ public class BreadthFirstSearch extends AbstractSearch
 	    	
 	    	else
 	    	{
-	    		if (current.getChildren().isEmpty())
-	    		{
-	    			return false;
-	    		}
-	    		
-	    		else 
-	    		{
-	    			queue.addAll(current.getChildren());
-	    		}
+	    		explored.add(current);
+	    		stack.addAll(current.getChildren());
 	    	}
 	    	
-	    	explored.add(current);
+	    	
 	    }
 	    return false;
 	}
